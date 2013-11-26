@@ -1,5 +1,6 @@
 package ru.nixan.android.requestloaders;
 
+import android.accounts.Account;
 import android.content.Context;
 
 /**
@@ -12,7 +13,7 @@ public interface IRequest {
      * @param context
      * @throws Exception
      */
-    public void execute(Context context) throws Exception;
+    public void execute(Context context, Account account) throws Exception;
 
     /**
      * Cancel the executing request
@@ -30,4 +31,16 @@ public interface IRequest {
      * @param exception
      */
     public void setException(Exception exception);
+
+    /**
+     *
+     * @return the exception that occured during excecution.
+     */
+    public Exception getException();
+
+    /**
+     *
+     * @return if the request was succesfull
+     */
+    public boolean isSuccesfull();
 }
