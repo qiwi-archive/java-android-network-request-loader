@@ -1,10 +1,7 @@
 package ru.nixan.android.requestloaders;
 
-import android.accounts.Account;
 import android.content.Context;
 import android.support.v4.content.AsyncTaskLoader;
-
-import ru.nixan.android.requestloaders.IRequest;
 
 /**
  * Created by nixan on 11/26/13.
@@ -12,26 +9,20 @@ import ru.nixan.android.requestloaders.IRequest;
 public class RequestLoader extends AsyncTaskLoader<IRequest> {
 
     private final IRequest mRequest;
-    private final Account mAccount;
 
-    public RequestLoader(Context context, IRequest request, Account account) {
+    public RequestLoader(Context context, IRequest request) {
         super(context);
         mRequest = request;
-        mAccount = account;
     }
 
     @Override
     public IRequest loadInBackground() {
         try {
-            mRequest.execute(getContext(), getAccount());
+            mRequest.execute(getContext());
         } catch (Exception e) {
             mRequest.setException(e);
         }
         return mRequest;
-    }
-
-    public Account getAccount() {
-        return mAccount;
     }
 
     @Override
@@ -42,12 +33,18 @@ public class RequestLoader extends AsyncTaskLoader<IRequest> {
 
     @Override
     protected void onStartLoading() {
-        if (mRequest.wasExecuted()) deliverResult(mRequest);
-        if (takeContentChanged() || !mRequest.wasExecuted()) forceLoad();
+        if (mRequest.wasExecuted()) {
+            deliverResult(mRequest);
+        }
+        if (takeContentChanged() || !mRequest.wasExecuted()) {
+            forceLoad();
+        }
     }
 
     @Override
     public void deliverResult(IRequest data) {
-        if (isStarted()) super.deliverResult(mRequest);
+        if (isStarted()) {
+            super.deliverResult(mRequest);
+        }
     }
 }

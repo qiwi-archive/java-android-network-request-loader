@@ -1,6 +1,5 @@
 package ru.nixan.android.requestloaders;
 
-import android.accounts.Account;
 import android.content.Context;
 
 /**
@@ -9,11 +8,10 @@ import android.content.Context;
 public interface IRequest {
 
     /**
-     * Executes the request. In case of any error in implemented protocol or actual implementation of network stack please throw an exception.
-     * @param context
-     * @throws Exception
+     * Executes the request. In case of any error in implemented protocol or actual implementation
+     * of network stack please throw an exception.
      */
-    public void execute(Context context, Account account) throws Exception;
+    public void execute(Context context) throws Exception;
 
     /**
      * Cancel the executing request
@@ -21,25 +19,21 @@ public interface IRequest {
     public void cancel();
 
     /**
-     *
      * @return if the instance of this request class have already been executed
      */
     public boolean wasExecuted();
 
     /**
      * Set the result of the request
-     * @param exception
      */
     public void setException(Exception exception);
 
     /**
-     *
      * @return the exception that occured during excecution.
      */
     public Exception getException();
 
     /**
-     *
      * @return if the request was succesfull
      */
     public boolean isSuccesfull();
