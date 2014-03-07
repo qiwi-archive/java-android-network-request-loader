@@ -17,11 +17,7 @@ public class RequestLoader extends AsyncTaskLoader<IRequest> {
 
     @Override
     public IRequest loadInBackground() {
-        try {
-            mRequest.execute(getContext());
-        } catch (Exception e) {
-            mRequest.setException(e);
-        }
+        mRequest.execute(getContext());
         return mRequest;
     }
 

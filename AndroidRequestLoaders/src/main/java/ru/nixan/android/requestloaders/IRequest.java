@@ -11,7 +11,7 @@ public interface IRequest {
      * Executes the request. In case of any error in implemented protocol or actual implementation
      * of network stack please throw an exception.
      */
-    public void execute(Context context) throws Exception;
+    public void execute(Context context);
 
     /**
      * Cancel the executing request
