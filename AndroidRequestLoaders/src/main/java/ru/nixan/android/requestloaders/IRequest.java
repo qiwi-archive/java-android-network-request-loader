@@ -8,8 +8,7 @@ import android.content.Context;
 public interface IRequest {
 
     /**
-     * Executes the request. In case of any error in implemented protocol or actual implementation
-     * of network stack please throw an exception.
+     * Executes the request.
      */
     public void execute(Context context);
 
