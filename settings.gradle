@@ -1,1 +1,1 @@
-include ':libraries:NetworkRequestLoader:AndroidRequestLoaders'
+include ':AndroidRequestLoaders'
