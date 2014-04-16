@@ -12,14 +12,12 @@
             <id>Snapshots</id>
             <name>Snapshots Repository</name>
             <url>https://maven.osmp.ru/nexus/content/repositories/snapshots</url>
-            <type>aar</type>
             <uniqueVersion>false</uniqueVersion>
         </snapshotRepository>
         <repository>
             <id>Releases</id>
             <name>Releases Repository</name>
             <url>https://maven.osmp.ru/nexus/content/repositories/releases</url>
-            <type>aar</type>
             <uniqueVersion>false</uniqueVersion>
         </repository>
     </distributionManagement>
