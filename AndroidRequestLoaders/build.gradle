@@ -11,6 +11,7 @@ buildscript {
 
 apply plugin: 'android-sdk-manager'
 apply plugin: 'android-library'
+apply plugin: 'maven'
 
 repositories {
     mavenCentral()
@@ -23,6 +24,31 @@ android {
     defaultConfig {
         minSdkVersion 8
         targetSdkVersion 19
+    }
+}
+
+configurations {
+    archives {
+        extendsFrom configurations.default
+    }
+}
+
+uploadArchives {
+    configuration = configurations.archives
+    repositories.mavenDeployer {
+
+        repository(url: java.lang.System.getProperty("gradle.repository.url")) {
+            authentication(userName: java.lang.System.getProperty("gradle.repository.username"),
+                    password: java.lang.System.getProperty("gradle.repository.password"))
+        }
+
+        pom.project {
+            artifactId = 'network-request-loader'
+            groupId = 'com.qiwi.android.utils'
+            version = '1.0.1'
+            name 'Android AsyncTaskLoader for executing network requests'
+            packaging 'aar'
+        }
     }
 }
 
