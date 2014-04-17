@@ -27,14 +27,7 @@ android {
     }
 }
 
-configurations {
-    archives {
-        extendsFrom configurations.default
-    }
-}
-
 uploadArchives {
-    configuration = configurations.archives
     repositories.mavenDeployer {
 
         repository(url: java.lang.System.getProperty("gradle.repository.url")) {
