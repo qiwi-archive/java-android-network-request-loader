@@ -3,9 +3,8 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.9.+'
-        classpath fileTree(dir: '../gradle-plugin',
-                includes: ['sdk-manager-plugin-0.9.2-SNAPSHOT.jar'])
+        classpath 'com.android.tools.build:gradle:0.10.+'
+        classpath 'com.jakewharton.sdkmanager:gradle-plugin:0.10.+'
     }
 }
 
@@ -18,22 +17,22 @@ repositories {
 }
 
 group = 'com.qiwi.android.utils'
-version = '1.0.1'
+version = '1.0.2'
 
 android.libraryVariants
 publishing {
     publications {
         maven(MavenPublication) {
             artifactId = 'network-request-loader'
-            artifact buildDir.toString() + '/libs/' + project.name + '.aar'
+            artifact buildDir.toString() + '/libs/' + project.name + '-' + version + '.aar'
         }
     }
     repositories {
         maven {
             url java.lang.System.getProperty("gradle.repository.url")
             credentials {
-                userName = java.lang.System.getProperty("gradle.repository.username")
-                password = java.lang.System.getProperty("gradle.repository.password")
+                username java.lang.System.getProperty("gradle.repository.username")
+                password java.lang.System.getProperty("gradle.repository.password")
             }
         }
     }
