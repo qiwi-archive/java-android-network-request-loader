@@ -29,10 +29,10 @@ publishing {
     }
     repositories {
         maven {
-            url java.lang.System.getProperty("gradle.repository.url")
+            url java.lang.System.getProperty("system.gradle.repository.url")
             credentials {
-                username = java.lang.System.getProperty("gradle.repository.username")
-                password = java.lang.System.getProperty("gradle.repository.password")
+                username java.lang.System.getProperty("system.gradle.repository.username")
+                password java.lang.System.getProperty("system.gradle.repository.password")
             }
         }
     }
