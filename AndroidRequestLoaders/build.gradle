@@ -28,7 +28,7 @@ publishing {
     publications {
         maven(MavenPublication) {
             artifactId = 'network-request-loader'
-            artifact buildDir.toString() + '/libs/' + project.name + '-' + version + '.aar'
+            artifact buildDir.toString() + '/outputs/' + project.name + '-' + version + '.aar'
         }
     }
     repositories {
