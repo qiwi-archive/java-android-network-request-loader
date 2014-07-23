@@ -29,11 +29,13 @@ public class RequestLoader extends AsyncTaskLoader<IRequest> {
 
     @Override
     protected void onStartLoading() {
-        if (mRequest.wasExecuted()) {
-            deliverResult(mRequest);
-        }
-        if (takeContentChanged() || !mRequest.wasExecuted()) {
-            forceLoad();
+        if (mRequest != null) {
+            if (mRequest.wasExecuted()) {
+                deliverResult(mRequest);
+            }
+            if (takeContentChanged() || !mRequest.wasExecuted()) {
+                forceLoad();
+            }
         }
     }
 

@@ -3,7 +3,7 @@ buildscript {
         mavenCentral()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:0.10.+'
+        classpath 'com.android.tools.build:gradle:0.12.+'
         classpath 'com.jakewharton.sdkmanager:gradle-plugin:0.10.+'
     }
 }
@@ -17,7 +17,7 @@ repositories {
 }
 
 group = 'com.qiwi.android.utils'
-version = '1.0.2'
+version = '1.0.3'
 
 android.libraryVariants
 publishing {
@@ -40,7 +40,7 @@ publishing {
 
 android {
     compileSdkVersion 19
-    buildToolsVersion "19.0.3"
+    buildToolsVersion "19.1.0"
 
     defaultConfig {
         minSdkVersion 8
