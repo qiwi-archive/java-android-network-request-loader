@@ -4,7 +4,7 @@ buildscript {
     }
     dependencies {
         classpath 'com.android.tools.build:gradle:0.12.+'
-        classpath 'com.jakewharton.sdkmanager:gradle-plugin:0.10.+'
+        classpath 'com.jakewharton.sdkmanager:gradle-plugin:0.12.+'
     }
 }
 
@@ -14,6 +14,10 @@ apply plugin: 'maven-publish'
 
 repositories {
     mavenCentral()
+}
+
+dependencies {
+    provided 'com.android.support:support-v4:19.0.+'
 }
 
 group = 'com.qiwi.android.utils'
@@ -48,6 +52,3 @@ android {
     }
 }
 
-dependencies {
-    provided 'com.android.support:appcompat-v7:19.0.+'
-}
